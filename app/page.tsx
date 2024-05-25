@@ -1,15 +1,34 @@
+"use client"
+import React, { useState } from 'react';
+import Welcome from '@/components/Welcome';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Transactions from '@/components/Transactions';
-import Welcome from '@/components/Welcome';
-import React from 'react';
 
 const Home = () => {
+  const [formData, setFormData] = useState({
+    addressTo: '',
+    message: '',
+    amount: '',
+    keyword: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <section className='min-h-screen bg-backgroundColor m-0 p-0'>
       <div>
         <Navbar />
-        <Welcome />
+        <Welcome
+          placeholder="Enter Eth Address"
+          name="addressTo"
+          type="text"
+          value={formData.addressTo}
+          onChange={handleChange}
+        />
+        {/* Repeat Welcome component for other inputs if necessary */}
       </div>
       <div>
         <Transactions />

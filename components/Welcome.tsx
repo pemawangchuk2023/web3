@@ -1,7 +1,7 @@
-'use client';
+"use client"
+import React, { useContext } from 'react';
 import { TransactionContext } from '@/context/TransactionContext';
 import Image from 'next/image';
-import React, { useContext, useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import Loader from './Loader';
@@ -14,15 +14,9 @@ interface InputFieldProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Welcome = ({placeholder, name, type, value}: InputFieldProps) => {
-  const {
-    connectWallet,
-    currentAccount,
-    formData,
-    sendTransaction,
-    handleChange,
-    isLoading,
-  } = useContext(TransactionContext);
+
+const Welcome = ({ placeholder, name, type, value, onChange }: InputFieldProps) => {
+  const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
   const { toast } = useToast();
 
   const handleSubmit = async (e: any) => {
@@ -71,7 +65,7 @@ const Welcome = ({placeholder, name, type, value}: InputFieldProps) => {
         </p>
         <div className='flex w-[464px] h-[107px] bg-stone-600 rounded-[25px] mt-9 justify-center text-left hover:bg-neutral-900'>
           <div className='mt-5'>
-          {!currentAccount ? (
+            {!currentAccount ? (
               <Button onClick={connectWallet}>
                 <p className='flex text-4xl mt-4 ml-12 from-neutral-200 cursor-pointer items-center justify-center'>
                   Connect Wallet
@@ -110,8 +104,6 @@ const Welcome = ({placeholder, name, type, value}: InputFieldProps) => {
                 className='rounded-2xl'
               />
             </div>
-          <div>
-          </div>
             <div className='w-24 h-24'>
               <Image
                 src='/assets/icons/star.png'
@@ -124,72 +116,72 @@ const Welcome = ({placeholder, name, type, value}: InputFieldProps) => {
             <div className='w-[100px] h-[105px] bg-gradient-to-b from-orange-400 to-pink-600 rounded-full shadow border border-black' />
           </div>
           <div className="mt-4 flex">
-          <Button className="font-bold rounded-lg text-3xl uppercase w-96 h-16 bg-[#D0169C] text-[#f9eeee] justify-center">
-            Ethereum: $ 3,792.60
-          </Button>
+            <Button className="font-bold rounded-lg text-3xl uppercase w-96 h-16 bg-[#D0169C] text-[#f9eeee] justify-center">
+              Ethereum: $ 3,792.60
+            </Button>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center">
-        <div className="w-[426px] h-[425px] bg-gradient-to-b from-pink-800 to-stone-800 rounded-[30px]" >
-          <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
-          <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
-            <Input
-            placeholder="Enter Eth Address"
-            name="addressTo"
-            type="text"
-            onChange={(e) => handleChange(e, "addressTo")}
-            className="text-black"
-            disabled={isLoading}
-            />
-          </div>
-          </div>
-          <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
-          <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
-            <Input
-            placeholder="Enter Message"
-            name="message"
-            type="text"
-            onChange={(e) => handleChange(e, 'message')}
-            className="text-black"
-            disabled={isLoading}
-            />
-          </div>
-          </div>
-          <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
-          <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
-            <Input
-            placeholder="Enter Eth Amount"
-            name="amount"
-            type="number"
-            onChange={(e) => handleChange(e, 'amount')}
-            className="text-black"
-            disabled={isLoading}
-            />
-          </div>
-          </div>
-          <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
-          <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
-            <Input
-            placeholder="Keyword"
-            name="addressTo"
-            type="text"
-            onChange={(e)=> handleChange(e, "keyword")}
-            className="text-black"
-            disabled={isLoading}
-            />
-          </div>
-          </div>
-          <div className="send">
-            {isLoading ? (
-              <Loader />
-            ): (
-              <Button onClick={handleSubmit} disabled={isLoading} className="text-white uppercase text-xl">
-              {isLoading ? 'Processing...' : 'Send Now'}
-            </Button>
-            )}
+            <div className="w-[426px] h-[425px] bg-gradient-to-b from-pink-800 to-stone-800 rounded-[30px]">
+              <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
+                <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
+                  <Input
+                    placeholder="Enter Eth Address"
+                    name="addressTo"
+                    type="text"
+                    onChange={(e) => handleChange(e, "addressTo")}
+                    className="text-black"
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
+                <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
+                  <Input
+                    placeholder="Enter Message"
+                    name="message"
+                    type="text"
+                    onChange={(e) => handleChange(e, 'message')}
+                    className="text-black"
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
+                <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
+                  <Input
+                    placeholder="Enter Eth Amount"
+                    name="amount"
+                    type="number"
+                    onChange={(e) => handleChange(e, 'amount')}
+                    className="text-black"
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col w-[395px] h-[77px] bg-gradient-to-r from-stone-700 to-orange-700 rounded-[15px] mt-4 ml-4">
+                <div className="ml-4 mt-4 w-[365px] h-[200px] text-white text-base font-extrabold">
+                  <Input
+                    placeholder="Keyword"
+                    name="keyword"
+                    type="text"
+                    onChange={(e)=> handleChange(e, "keyword")}
+                    className="text-black"
+                    disabled={isLoading}
+                  />
+                </div>
+              </div>
+              <div className="send">
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <Button onClick={handleSubmit} disabled={isLoading} className="text-white uppercase text-xl">
+                    {isLoading ? 'Processing...' : 'Send Now'}
+                  </Button>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
       </div>
     </section>
   );

@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.bg-custom-gradient {
+  background: linear-gradient(180deg, #594847 0%, #382a29 100%);
+}
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff 0%, #b50b0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.header-text {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.header-wallet {
+  width: 464px;
+  height: 107px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: #5f4848;
+}
+.header-wallet {
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+  padding-right: 20px;
+  margin-right: 60px;
+  margin-top: 4px;
+}
+.star-icon {
+  fill: #d9d9d9;
+  stroke-width: 1px;
+  stroke: #193f4a;
+}
+
+.mar {
+  position: absolute;
+  top: 68px;
+  left: 382px;
+  font-size: 20px;
+  font-weight: 800;
+  display: inline-block;
+  width: 110px;
+  height: 46px;
+}
+.frameChild {
+  position: absolute;
+  top: 52px;
+  left: 345px;
+  border-radius: 25px;
+}
+.send{
+  display: flex;
+  width: 425px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 15px;
+  border: 3px solid #DCBEBE;
+}
+
+.card {
+  @apply bg-[#331E36] m-4 flex flex-1 flex-col p-3 rounded-md hover:shadow-2xl;
+  @apply 2xl:min-w-[800px];
+  @apply 2xl:max-w-[900px];
+  @apply sm:min-w-[300px];
+  @apply sm:max-w-[350px];
+}
